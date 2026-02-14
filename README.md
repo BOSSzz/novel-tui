@@ -2,6 +2,12 @@
 
 一个基于 [Textual](https://textual.textualize.io/) 的终端小说阅读器，专为 `.txt` 格式的中文小说设计。
 
+## 截图
+
+| 书架 | 添加书籍 | 阅读 |
+|:---:|:---:|:---:|
+| ![书架](assets/books.png) | ![添加书籍](assets/add_book.png) | ![阅读](assets/read.png) |
+
 ## 功能
 
 - **书架管理** — 添加、删除书籍，显示阅读进度和统计信息
