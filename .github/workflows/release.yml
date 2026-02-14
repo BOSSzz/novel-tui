@@ -21,10 +21,6 @@ jobs:
             target: windows-amd64
             asset_name: novel-tui-windows-amd64.exe
             sep: ";"
-          - os: macos-13
-            target: macos-amd64
-            asset_name: novel-tui-macos-amd64
-            sep: ":"
           - os: macos-latest
             target: macos-arm64
             asset_name: novel-tui-macos-arm64

@@ -33,7 +33,6 @@
 | Linux x86_64 | `novel-tui-linux-amd64` |
 | Windows x86_64 | `novel-tui-windows-amd64.exe` |
 | macOS Apple Silicon | `novel-tui-macos-arm64` |
-| macOS Intel | `novel-tui-macos-amd64` |
 
 下载后赋予执行权限（Linux/macOS）：
 
