@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: linux-amd64
+            asset_name: novel-tui-linux-amd64
+            sep: ":"
+          - os: windows-latest
+            target: windows-amd64
+            asset_name: novel-tui-windows-amd64.exe
+            sep: ";"
+          - os: macos-13
+            target: macos-amd64
+            asset_name: novel-tui-macos-amd64
+            sep: ":"
+          - os: macos-latest
+            target: macos-arm64
+            asset_name: novel-tui-macos-arm64
+            sep: ":"
+
+    runs-on: ${{ matrix.os }}
+    name: Build (${{ matrix.target }})
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Install PyInstaller
+        run: uv pip install pyinstaller
+
+      - name: Build binary
+        shell: bash
+        run: |
+          uv run pyinstaller \
+            --onefile \
+            --name "${{ matrix.asset_name }}" \
+            --add-data "src/novel_tui/styles${{ matrix.sep }}novel_tui/styles" \
+            --collect-data textual \
+            --hidden-import novel_tui.screens \
+            --hidden-import novel_tui.screens.book_list \
+            --hidden-import novel_tui.screens.reading \
+            --hidden-import novel_tui.screens.add_book \
+            --hidden-import novel_tui.widgets \
+            --hidden-import novel_tui.widgets.book_table \
+            --hidden-import novel_tui.widgets.content_view \
+            --hidden-import novel_tui.widgets.chapter_sidebar \
+            --hidden-import novel_tui.widgets.search_bar \
+            --hidden-import novel_tui.widgets.status_bar \
+            --hidden-import novel_tui.widgets.file_picker \
+            --hidden-import novel_tui.core \
+            --hidden-import novel_tui.core.parser \
+            --hidden-import novel_tui.core.reader \
+            --hidden-import novel_tui.core.search \
+            --hidden-import novel_tui.db \
+            --hidden-import novel_tui.db.connection \
+            --hidden-import novel_tui.db.models \
+            --hidden-import novel_tui.db.repository \
+            src/novel_tui/__main__.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset_name }}
+          path: dist/${{ matrix.asset_name }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Create Release
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: List artifacts
+        run: ls -lR artifacts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: artifacts/*

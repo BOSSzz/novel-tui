@@ -24,6 +24,44 @@
 
 ## 安装
 
+### 方式一：直接下载（推荐）
+
+从 [Releases](https://github.com/BOSSzz/novel-tui/releases/latest) 下载对应平台的二进制文件，无需安装 Python：
+
+| 平台 | 文件名 |
+|------|--------|
+| Linux x86_64 | `novel-tui-linux-amd64` |
+| Windows x86_64 | `novel-tui-windows-amd64.exe` |
+| macOS Apple Silicon | `novel-tui-macos-arm64` |
+| macOS Intel | `novel-tui-macos-amd64` |
+
+下载后赋予执行权限（Linux/macOS）：
+
+```bash
+chmod +x novel-tui-*
+./novel-tui-macos-arm64  # 以 macOS ARM 为例
+```
+
+### 方式二：pipx / uv tool 安装
+
+需要 Python 3.12+：
+
+```bash
+# 使用 uv
+uv tool install git+https://github.com/BOSSzz/novel-tui.git
+
+# 或使用 pipx
+pipx install git+https://github.com/BOSSzz/novel-tui.git
+```
+
+安装后直接运行：
+
+```bash
+novel-tui
+```
+
+### 方式三：从源码构建
+
 需要 Python 3.12+，推荐使用 [uv](https://docs.astral.sh/uv/)：
 
 ```bash
@@ -32,9 +70,22 @@ cd novel-tui
 uv sync
 ```
 
+从源码运行：
+
+```bash
+uv run novel-tui
+```
+
 ## 使用
 
 ```bash
+# 直接下载的二进制文件
+./novel-tui-macos-arm64
+
+# pipx / uv tool 安装
+novel-tui
+
+# 从源码运行
 uv run novel-tui
 ```
 
