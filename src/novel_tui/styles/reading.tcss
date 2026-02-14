@@ -1,0 +1,140 @@
+/* Reading screen styles */
+ReadingScreen {
+    layout: horizontal;
+}
+
+ReadingScreen #reading-container {
+    width: 1fr;
+    height: 1fr;
+    layout: vertical;
+}
+
+/* Content view (VerticalScroll) */
+#content-view {
+    width: 1fr;
+    height: 1fr;
+}
+
+/* Status bar */
+#status-bar {
+    dock: bottom;
+    height: 1;
+    background: #313244;
+    color: #cdd6f4;
+    padding: 0 2;
+    layout: horizontal;
+}
+
+#status-bar #status-chapter {
+    width: 1fr;
+}
+
+#status-bar #status-progress {
+    width: auto;
+    min-width: 20;
+    text-align: right;
+}
+
+/* Chapter sidebar */
+#chapter-sidebar {
+    width: 35;
+    height: 1fr;
+    dock: left;
+    background: #313244;
+    border-right: solid #6c7086;
+    display: none;
+}
+
+#chapter-sidebar.visible {
+    display: block;
+}
+
+#chapter-sidebar #sidebar-title {
+    text-align: center;
+    text-style: bold;
+    padding: 1;
+    background: #3465a4;
+    color: #cdd6f4;
+}
+
+#chapter-sidebar ListView {
+    height: 1fr;
+}
+
+#chapter-sidebar ListItem {
+    padding: 0 1;
+}
+
+#chapter-sidebar ListItem.level-1 {
+    text-style: bold;
+    color: #c4a000;
+}
+
+#chapter-sidebar ListItem.level-2 {
+    padding: 0 1 0 3;
+}
+
+#chapter-sidebar ListItem.current {
+    background: #4e9a06 30%;
+}
+
+/* Search bar */
+#search-bar {
+    dock: bottom;
+    height: 3;
+    background: #313244;
+    padding: 0 1;
+    display: none;
+}
+
+#search-bar.visible {
+    display: block;
+}
+
+#search-bar Horizontal {
+    height: 100%;
+    width: 100%;
+}
+
+#search-bar Input {
+    width: 1fr;
+}
+
+#search-bar #search-count {
+    width: auto;
+    min-width: 15;
+    padding: 1;
+    text-align: right;
+    color: #6c7086;
+}
+
+/* Settings modal */
+SettingsModal {
+    align: center middle;
+}
+
+SettingsModal #settings-container {
+    width: 50;
+    height: auto;
+    border: thick #3465a4;
+    background: #1e1e2e;
+    padding: 1 2;
+}
+
+SettingsModal #settings-container Label {
+    margin: 1 0 0 0;
+}
+
+SettingsModal #settings-container Input {
+    margin: 0 0 1 0;
+}
+
+SettingsModal #settings-btn-row {
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+SettingsModal #settings-btn-row Button {
+    margin: 0 2;
+}

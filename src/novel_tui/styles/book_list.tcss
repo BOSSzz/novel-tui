@@ -1,0 +1,117 @@
+/* Book list screen styles */
+BookListScreen {
+    layout: vertical;
+}
+
+BookListScreen #book-table {
+    height: 1fr;
+}
+
+BookListScreen #empty-label {
+    text-align: center;
+    text-style: italic;
+    color: #6c7086;
+    width: 1fr;
+    height: 1fr;
+    content-align: center middle;
+}
+
+/* Add book modal */
+AddBookModal {
+    align: center middle;
+}
+
+AddBookModal #add-book-container {
+    width: 75;
+    height: auto;
+    max-height: 30;
+    border: thick #3465a4;
+    background: #1e1e2e;
+    padding: 1 2;
+}
+
+AddBookModal #add-book-title {
+    text-style: bold;
+    text-align: center;
+    width: 1fr;
+    margin: 0 0 1 0;
+}
+
+AddBookModal #parse-status {
+    margin: 1 0 0 0;
+    height: 1;
+}
+
+AddBookModal #btn-row {
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+AddBookModal #btn-row Button {
+    margin: 0 2;
+}
+
+/* ── File picker ── */
+#file-picker {
+    height: auto;
+}
+
+#fp-input {
+    margin: 0;
+}
+
+#fp-list {
+    height: auto;
+    max-height: 15;
+    background: #181825;
+    border: solid #585b70;
+    margin-top: 1;
+}
+
+.fp-entry {
+    height: 1;
+    width: 1fr;
+    padding: 0 1;
+}
+
+.fp-dir {
+    color: #89b4fa;
+}
+
+.fp-selected {
+    background: #45475a;
+}
+
+.fp-selected.fp-dir {
+    color: #89dceb;
+}
+
+/* Confirm delete modal */
+ConfirmDeleteModal {
+    align: center middle;
+}
+
+ConfirmDeleteModal #confirm-container {
+    width: 50;
+    height: auto;
+    border: thick #f38ba8;
+    background: #1e1e2e;
+    padding: 1 2;
+}
+
+ConfirmDeleteModal #confirm-container Label {
+    text-align: center;
+    width: 1fr;
+    margin: 1 0;
+}
+
+ConfirmDeleteModal #confirm-btn-row {
+    height: auto;
+    align: center middle;
+    margin-top: 1;
+}
+
+ConfirmDeleteModal #confirm-btn-row Button {
+    margin: 0 2;
+}

@@ -1,0 +1,14 @@
+/* Global application styles */
+Screen {
+    background: #1e1e2e;
+}
+
+Header {
+    dock: top;
+    background: #4e9a06;
+    color: #cdd6f4;
+}
+
+Footer {
+    dock: bottom;
+}

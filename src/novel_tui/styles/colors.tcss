@@ -1,0 +1,12 @@
+/* Color reference (values inlined into other files):
+   primary:       #4e9a06
+   secondary:     #3465a4
+   accent:        #c4a000
+   surface:       #1e1e2e
+   surface-light: #313244
+   text:          #cdd6f4
+   text-dim:      #6c7086
+   error:         #f38ba8
+   success:       #a6e3a1
+   warning:       #f9e2af
+*/
